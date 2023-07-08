@@ -1,0 +1,18 @@
+{% extends 'base.html'%} {% block title%} POST {% endblock%} {% block content%}
+
+<div class="container-custom">
+  <div class="row">
+    <div class="col s12 m10">
+      <h2 style="margin-top: 50px; font-family: Montserrat; font-weight: bolder;">{{post.title}}</h2>
+
+      <p style="font-size: larger;">{{post.cat.title}}</p>
+
+      <img src="/media/{{post.image}}" alt="" style="width: 1400px; height: 500px;" />
+
+      <br />
+      <p>{{post.content|safe}}</p>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

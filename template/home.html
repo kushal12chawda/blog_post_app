@@ -1,0 +1,34 @@
+{% extends 'base.html'%} {% block title%} Welcome to blogs {% endblock%} {% block content%}
+
+<div class="back" style="background-color: black;">
+<img src="https://i.pinimg.com/564x/36/cd/c2/36cdc28af8c2dd38c3c9e8e5590b2c2b.jpg" style="width: 50%; height: 350px; border-radius: 30px; font-family: Apple Chancery; color: whitesmoke;">
+<span style="font-family: Brush Script MT; color: yellow; font-size: 29px;">Conversation is king. Content is just something to talk about.</span><span style="font-family: brush script mt; color: white; font-size: 29px;"> ~Cory Doctorow</span>
+</div>
+
+<div class="container1" style="margin-top: 50px;">
+  <div class="topics">
+    {% for cat in cats %}
+    <div class="item" style="margin-left: 200px; margin-bottom: 30px;">
+      <div class="image" style="width: 250px;">
+        <img
+          src="/media/{{cat.image}}"
+          class="responsive-img"
+          style="height: 350px; width: 250px; float: left; border-radius: 30px; margin-bottom: 70px;"
+          alt=""
+        />
+      </div>
+      <div class="content" style="background-color: black; float: right; width: 700px; margin-top: 30px; margin-right: 150px;">
+        <div class="title" style="font-size: x-large; font-weight: bolder; font-family: Montserrat;">{{cat.title}}</div>
+        <br>
+        <p class="truncate">{{cat.description|truncatewords:50}}</p>
+        <br>
+        <div class="container center-align mt-20">
+          <a href="/category/{{cat.url}}" class="btn bg-warning">Visit</a>
+        </div>
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html'%} {% block title%} Welcome to blogs {% endblock%} {% block content%}
+
+<div class="container-custom">
+  <br>
+  <br>
+  <div class="img-container" style="float: left;">
+    <img src="/media/{{cat.image}}" class="responsive-img" style="height: 600px; width: 500px; border-radius: 30px; margin-bottom: 50px;" alt=""/>
+  </div>
+  <h2 class="desc" style="width: 850px; float: left; margin-left: 50px; margin-bottom: 20px; font-family: Montserrat; font-weight: bolder;">{{cat.title}}</h2>
+  <br>
+  <div class="desc" style="width: 850px; float: left; margin-left: 50px; margin-bottom: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: larger;">{{cat.description}}</div>
+  <br>
+  <h3 style="margin-left: 50px; float: left; font-family: Montserrat; margin-top: 30px;">Popular Blogs</h3>
+  <br>
+  <div class="collection" style="float: left; margin-left: 20px; margin-top: 70px;">
+    {% for p in post%}
+    <a href="/blog/{{p.url}}" class="collection-item" style="color: #FFC72C; text-decoration: none; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: large;">{{p.title}}</a>
+    <br>
+    {% empty%}
+    <p>No post in this category</p>
+    {% endfor%}
+  </div>
+</div>
+
+{% endblock%}
